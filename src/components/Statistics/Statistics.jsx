@@ -1,4 +1,4 @@
-import css from './Statistics.module.css';
+import { StatisticsList,StatisticsItem } from "./Statistics.styled";
 
 const Statistics = ({good, neutral, bad, total, positivePercentage}) => {
     const isEmptyList = !(good + neutral + bad);
@@ -12,13 +12,16 @@ const Statistics = ({good, neutral, bad, total, positivePercentage}) => {
         { statItem: positivePercentage, title: 'Positive feedbacks' },
     ]
     return (
-    <ul className={css.stat_list}>
+    <StatisticsList>
     {statList.map(({statItem,title}) => (
-        <li key ={title}>
-        {title} : {statItem}
-        </li>
+        <StatisticsItem key ={title}>
+            <p>{title} :
+            <span>{statItem}</span>
+            </p>
+         
+        </StatisticsItem>
         ))}
-    </ul>
+    </StatisticsList>
 
     )
 };
