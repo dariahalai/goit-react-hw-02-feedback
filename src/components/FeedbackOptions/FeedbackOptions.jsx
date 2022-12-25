@@ -1,14 +1,16 @@
+import css from './FeedbackOptions.module.css';
+
 const FeedbackOptions  = ({options,onLeaveFeedback}) =>{
         return (
-            <ul>
+            <ul className={css.options_list}>
           {options.map(option => (
            <li key ={option}>
-             <button  name={option} type="button" onClick={onLeaveFeedback}>{option}</button>
+             <button className={css.button} name={option} type="button" onClick={onLeaveFeedback}>{option[0].toUpperCase() + option.substring(1)}</button>
            </li>
           ))}
         </ul>   
         )
-
+          
 }
 
 export default FeedbackOptions;
